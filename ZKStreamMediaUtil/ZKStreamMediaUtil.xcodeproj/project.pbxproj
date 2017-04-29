@@ -13,6 +13,7 @@
 		584BC6AA1EB44EB0003BC055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6A91EB44EB0003BC055 /* Assets.xcassets */; };
 		584BC6AD1EB44EB0003BC055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6AB1EB44EB0003BC055 /* LaunchScreen.storyboard */; };
 		584BC6B71EB44F84003BC055 /* ZKDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6B61EB44F84003BC055 /* ZKDownloader.m */; };
+		584BC6BB1EB45202003BC055 /* ZKFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6BA1EB45202003BC055 /* ZKFileTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,9 @@
 		584BC6AE1EB44EB0003BC055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		584BC6B51EB44F84003BC055 /* ZKDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKDownloader.h; sourceTree = "<group>"; };
 		584BC6B61EB44F84003BC055 /* ZKDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKDownloader.m; sourceTree = "<group>"; };
+		584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKGlobalHeader.h; sourceTree = "<group>"; };
+		584BC6B91EB45202003BC055 /* ZKFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFileTool.h; sourceTree = "<group>"; };
+		584BC6BA1EB45202003BC055 /* ZKFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFileTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +87,11 @@
 		584BC6B41EB44F68003BC055 /* ZKStreamMediaUtil */ = {
 			isa = PBXGroup;
 			children = (
+				584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */,
 				584BC6B51EB44F84003BC055 /* ZKDownloader.h */,
 				584BC6B61EB44F84003BC055 /* ZKDownloader.m */,
+				584BC6B91EB45202003BC055 /* ZKFileTool.h */,
+				584BC6BA1EB45202003BC055 /* ZKFileTool.m */,
 			);
 			path = ZKStreamMediaUtil;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 				584BC6A51EB44EB0003BC055 /* ViewController.m in Sources */,
 				584BC6B71EB44F84003BC055 /* ZKDownloader.m in Sources */,
 				584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */,
+				584BC6BB1EB45202003BC055 /* ZKFileTool.m in Sources */,
 				584BC69F1EB44EB0003BC055 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

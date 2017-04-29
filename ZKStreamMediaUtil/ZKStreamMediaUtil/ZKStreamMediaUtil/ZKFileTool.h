@@ -1,5 +1,5 @@
 //
-//  ZKDownloader.h
+//  ZKFileTool.h
 //  ZKStreamMediaUtil
 //
 //  Created by ZK on 2017/4/29.
@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZKDownloader : NSObject
+@interface ZKFileTool : NSObject
 
-+ (void)downloadWithUrl:(NSURL *)url;
++ (BOOL)fileExists:(NSString *)filePath;
++ (long long)fileSize:(NSString *)filePath;
 
 @end
