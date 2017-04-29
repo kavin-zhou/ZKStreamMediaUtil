@@ -17,6 +17,7 @@
 @property (nonatomic, assign) long long totalSize;
 @property (nonatomic, copy) NSString *downloadedPath;
 @property (nonatomic, copy) NSString *downloadingPath;
+@property (nonatomic, strong) NSOutputStream *outputStream;
 
 @end
 
@@ -26,6 +27,7 @@
     NSString *fileName = url.lastPathComponent;
     _downloadedPath = [CachePath stringByAppendingPathComponent:fileName];
     _downloadingPath = [TempPath stringByAppendingPathComponent:fileName];
+    DLog(@"正在下载的文件保存地址\n%@\n", _downloadingPath);
     
     if ([ZKFileTool fileExists:_downloadedPath]) {
         DLog(@"已经存在下载好的文件");
@@ -36,7 +38,6 @@
         return;
     }
     _tempSize = [ZKFileTool fileSize:_downloadingPath];
-    _tempSize = 43007999;
     [self downloadWihUrl:url offset:_tempSize];
 }
 
@@ -83,16 +84,27 @@
     }
     else {
         DLog(@"继续接收数据");
+        _outputStream = [NSOutputStream outputStreamToFileAtPath:_downloadingPath append:true];
+        [_outputStream open];
         completionHandler(NSURLSessionResponseAllow);
     }
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    
+    [_outputStream write:data.bytes maxLength:data.length];
+    DLog(@"正在接收数据");
 }
 
 // 请求完成，不一定成功
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
+    [_outputStream close];
+    
+    if (error) {
+        DLog(@"%@", error);
+        return;
+    }
+    // 注意，到这里不一定成功，如果中间有字节重叠等错误，最后的数据是有问题的
+    // 可以用 MD5 验证一下
     
 }
 

@@ -23,7 +23,9 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSURL *url = [NSURL URLWithString:@"http://pinyin.sogou.com/mac/softdown.php"];
+    // @"http://pinyin.sogou.com/mac/softdown.php"
+    
+    NSURL *url = [NSURL URLWithString:@"http://down.kuwo.cn/mac/kwplayer_mac.dmg"];
     _downloader = [[ZKDownloader alloc] init];
     [_downloader downloadWithUrl:url];
 }
