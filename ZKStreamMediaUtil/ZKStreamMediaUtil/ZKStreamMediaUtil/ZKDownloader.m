@@ -18,12 +18,19 @@
 @property (nonatomic, copy) NSString *downloadedPath;
 @property (nonatomic, copy) NSString *downloadingPath;
 @property (nonatomic, strong) NSOutputStream *outputStream;
+@property (nonatomic, weak) NSURLSessionDataTask *dataTask;
 
 @end
 
 @implementation ZKDownloader
 
 - (void)downloadWithUrl:(NSURL *)url {
+    
+    if ([url isEqual:_dataTask.originalRequest.URL]) { // 如果当前任务已经存在
+        [self resumeCurrentTask];
+        return;
+    }
+    
     NSString *fileName = url.lastPathComponent;
     _downloadedPath = [CachePath stringByAppendingPathComponent:fileName];
     _downloadingPath = [TempPath stringByAppendingPathComponent:fileName];
@@ -51,8 +58,26 @@
     
     [request setValue:[NSString stringWithFormat:@"bytes=%lld-", offset] forHTTPHeaderField:@"Range"];
     
-    NSURLSessionDataTask *dataTask = [_session dataTaskWithRequest:request];
-    [dataTask resume];
+    _dataTask = [_session dataTaskWithRequest:request];
+    [_dataTask resume];
+}
+
+- (void)pauseCurrentTask {
+    [_dataTask suspend];
+}
+
+- (void)cancelCurrentTask {
+    [self.session invalidateAndCancel];
+    self.session = nil;
+}
+
+- (void)cancelAndClear {
+    [self cancelCurrentTask];
+    [ZKFileTool removePath:_downloadingPath];
+}
+
+- (void)resumeCurrentTask {
+    [_dataTask resume];
 }
 
 #pragma mark - <NSURLSessionDataDelegate>
@@ -98,6 +123,7 @@
 // 请求完成，不一定成功
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     [_outputStream close];
+    DLog(@"下载完成");
     
     if (error) {
         DLog(@"%@", error);
