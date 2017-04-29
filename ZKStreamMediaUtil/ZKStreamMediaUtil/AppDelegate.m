@@ -26,6 +26,8 @@
     UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navc;
     
+    
+    
     // Override point for customization after application launch.
     return YES;
 }

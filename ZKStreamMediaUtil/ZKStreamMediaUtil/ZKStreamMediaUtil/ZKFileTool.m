@@ -26,4 +26,20 @@
     return [fileInfo[NSFileSize] longLongValue];
 }
 
++ (void)moveFile:(NSString *)fromPath toPath:(NSString *)toPath {
+    if (![self fileExists:fromPath]) {
+        NSLog(@"文件不存在");
+        return;
+    }
+    [[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:toPath error:nil];
+}
+
++ (void)removePath:(NSString *)filePath {
+    if (![self fileExists:filePath]) {
+        NSLog(@"文件不存在");
+        return;
+    }
+    [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+}
+
 @end

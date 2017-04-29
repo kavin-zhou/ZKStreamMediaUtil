@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ZKDownloader.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) ZKDownloader *downloader;
 
 @end
 
@@ -17,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSURL *url = [NSURL URLWithString:@"http://pinyin.sogou.com/mac/softdown.php"];
+    _downloader = [[ZKDownloader alloc] init];
+    [_downloader downloadWithUrl:url];
 }
 
 

@@ -10,6 +10,6 @@
 
 @interface ZKDownloader : NSObject
 
-+ (void)downloadWithUrl:(NSURL *)url;
+- (void)downloadWithUrl:(NSURL *)url;
 
 @end

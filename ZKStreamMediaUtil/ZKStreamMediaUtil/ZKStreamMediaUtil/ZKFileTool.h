@@ -12,5 +12,7 @@
 
 + (BOOL)fileExists:(NSString *)filePath;
 + (long long)fileSize:(NSString *)filePath;
++ (void)moveFile:(NSString *)fromPath toPath:(NSString *)toPath;
++ (void)removePath:(NSString *)filePath;
 
 @end
