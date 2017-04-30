@@ -4,5 +4,5 @@ platform :ios, '8.0'
 target 'ZKStreamMediaUtil' do
   use_frameworks!
   pod 'GPUImage'
-
+  pod 'Masonry'
 end

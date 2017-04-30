@@ -8,18 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		2775336753FAD7C7BB52EDEB /* Pods_ZKStreamMediaUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36AF8CA5A4D06DC2A4E09452 /* Pods_ZKStreamMediaUtil.framework */; };
+		5845AAE91EB58688003C1AAC /* ZKDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5845AAE61EB58688003C1AAC /* ZKDownloader.m */; };
+		5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5845AAE81EB58688003C1AAC /* ZKFileTool.m */; };
+		5845AAEE1EB586B7003C1AAC /* ZKFilterPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5845AAEC1EB586B7003C1AAC /* ZKFilterPreviewViewController.m */; };
+		5845AAF21EB5882C003C1AAC /* ZKFilterOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5845AAF11EB5882C003C1AAC /* ZKFilterOptionView.m */; };
 		584BC69F1EB44EB0003BC055 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC69E1EB44EB0003BC055 /* main.m */; };
 		584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6A11EB44EB0003BC055 /* AppDelegate.m */; };
 		584BC6A51EB44EB0003BC055 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6A41EB44EB0003BC055 /* ViewController.m */; };
 		584BC6AA1EB44EB0003BC055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6A91EB44EB0003BC055 /* Assets.xcassets */; };
 		584BC6AD1EB44EB0003BC055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6AB1EB44EB0003BC055 /* LaunchScreen.storyboard */; };
-		584BC6B71EB44F84003BC055 /* ZKDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6B61EB44F84003BC055 /* ZKDownloader.m */; };
-		584BC6BB1EB45202003BC055 /* ZKFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6BA1EB45202003BC055 /* ZKFileTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		36AF8CA5A4D06DC2A4E09452 /* Pods_ZKStreamMediaUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZKStreamMediaUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		574D8B20ED184C1F5BDFB6C3 /* Pods-ZKStreamMediaUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.release.xcconfig"; sourceTree = "<group>"; };
+		5845AAE51EB58688003C1AAC /* ZKDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKDownloader.h; sourceTree = "<group>"; };
+		5845AAE61EB58688003C1AAC /* ZKDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKDownloader.m; sourceTree = "<group>"; };
+		5845AAE71EB58688003C1AAC /* ZKFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFileTool.h; sourceTree = "<group>"; };
+		5845AAE81EB58688003C1AAC /* ZKFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFileTool.m; sourceTree = "<group>"; };
+		5845AAEB1EB586B7003C1AAC /* ZKFilterPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFilterPreviewViewController.h; sourceTree = "<group>"; };
+		5845AAEC1EB586B7003C1AAC /* ZKFilterPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFilterPreviewViewController.m; sourceTree = "<group>"; };
+		5845AAF01EB5882C003C1AAC /* ZKFilterOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFilterOptionView.h; sourceTree = "<group>"; };
+		5845AAF11EB5882C003C1AAC /* ZKFilterOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFilterOptionView.m; sourceTree = "<group>"; };
+		5845AAF31EB58866003C1AAC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		584BC69A1EB44EB0003BC055 /* ZKStreamMediaUtil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKStreamMediaUtil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584BC69E1EB44EB0003BC055 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584BC6A01EB44EB0003BC055 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,11 +40,7 @@
 		584BC6A91EB44EB0003BC055 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		584BC6AC1EB44EB0003BC055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		584BC6AE1EB44EB0003BC055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		584BC6B51EB44F84003BC055 /* ZKDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKDownloader.h; sourceTree = "<group>"; };
-		584BC6B61EB44F84003BC055 /* ZKDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKDownloader.m; sourceTree = "<group>"; };
 		584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKGlobalHeader.h; sourceTree = "<group>"; };
-		584BC6B91EB45202003BC055 /* ZKFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFileTool.h; sourceTree = "<group>"; };
-		584BC6BA1EB45202003BC055 /* ZKFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFileTool.m; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +63,28 @@
 				574D8B20ED184C1F5BDFB6C3 /* Pods-ZKStreamMediaUtil.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5845AAE31EB5865E003C1AAC /* ZKFilterPreview */ = {
+			isa = PBXGroup;
+			children = (
+				5845AAEB1EB586B7003C1AAC /* ZKFilterPreviewViewController.h */,
+				5845AAEC1EB586B7003C1AAC /* ZKFilterPreviewViewController.m */,
+				5845AAF01EB5882C003C1AAC /* ZKFilterOptionView.h */,
+				5845AAF11EB5882C003C1AAC /* ZKFilterOptionView.m */,
+			);
+			path = ZKFilterPreview;
+			sourceTree = "<group>";
+		};
+		5845AAE41EB58688003C1AAC /* ZKDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				5845AAE51EB58688003C1AAC /* ZKDownloader.h */,
+				5845AAE61EB58688003C1AAC /* ZKDownloader.m */,
+				5845AAE71EB58688003C1AAC /* ZKFileTool.h */,
+				5845AAE81EB58688003C1AAC /* ZKFileTool.m */,
+			);
+			path = ZKDownloader;
 			sourceTree = "<group>";
 		};
 		584BC6911EB44EB0003BC055 = {
@@ -96,6 +125,7 @@
 				584BC6AB1EB44EB0003BC055 /* LaunchScreen.storyboard */,
 				584BC6AE1EB44EB0003BC055 /* Info.plist */,
 				584BC69E1EB44EB0003BC055 /* main.m */,
+				5845AAF31EB58866003C1AAC /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -104,10 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */,
-				584BC6B51EB44F84003BC055 /* ZKDownloader.h */,
-				584BC6B61EB44F84003BC055 /* ZKDownloader.m */,
-				584BC6B91EB45202003BC055 /* ZKFileTool.h */,
-				584BC6BA1EB45202003BC055 /* ZKFileTool.m */,
+				5845AAE41EB58688003C1AAC /* ZKDownloader */,
+				5845AAE31EB5865E003C1AAC /* ZKFilterPreview */,
 			);
 			path = ZKStreamMediaUtil;
 			sourceTree = "<group>";
@@ -242,10 +270,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5845AAEE1EB586B7003C1AAC /* ZKFilterPreviewViewController.m in Sources */,
 				584BC6A51EB44EB0003BC055 /* ViewController.m in Sources */,
-				584BC6B71EB44F84003BC055 /* ZKDownloader.m in Sources */,
+				5845AAF21EB5882C003C1AAC /* ZKFilterOptionView.m in Sources */,
+				5845AAE91EB58688003C1AAC /* ZKDownloader.m in Sources */,
 				584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */,
-				584BC6BB1EB45202003BC055 /* ZKFileTool.m in Sources */,
+				5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */,
 				584BC69F1EB44EB0003BC055 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TE2958KSXV;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ZKStreamMediaUtil/PrefixHeader.pch";
 				INFOPLIST_FILE = ZKStreamMediaUtil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -374,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TE2958KSXV;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ZKStreamMediaUtil/PrefixHeader.pch";
 				INFOPLIST_FILE = ZKStreamMediaUtil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -401,6 +433,7 @@
 				584BC6B31EB44EB0003BC055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
