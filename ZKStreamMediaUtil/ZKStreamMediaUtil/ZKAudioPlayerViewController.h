@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ZKAudioPlayerViewController.h
 //  ZKStreamMediaUtil
 //
 //  Created by ZK on 2017/4/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ZKAudioPlayerViewController : UIViewController
 
 @end

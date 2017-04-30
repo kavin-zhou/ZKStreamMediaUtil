@@ -2,16 +2,14 @@
 //  ViewController.m
 //  ZKStreamMediaUtil
 //
-//  Created by ZK on 2017/4/29.
+//  Created by ZK on 2017/4/30.
 //  Copyright © 2017年 ZK. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "ZKDownloadManager.h"
+#import "ZKAudioPlayerViewController.h"
 
 @interface ViewController ()
-
-@property (nonatomic, strong) ZKDownloader *downloader;
 
 @end
 
@@ -19,19 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view from its nib.
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    // @"http://pinyin.sogou.com/mac/softdown.php"
-    
-    NSURL *url = [NSURL URLWithString:@"http://down.kuwo.cn/mac/kwplayer_mac.dmg"];
-    
-    [[ZKDownloadManager shareInstance] downloadWithUrl:url progress:^(CGFloat progress) {
-        NSLog(@"进度%f", progress);
-    } success:^(NSString *cachePath) {
-        NSLog(@"保存路径%@", cachePath);
-    }];
+- (IBAction)pushToAudioVC {
+    ZKAudioPlayerViewController *vc = [ZKAudioPlayerViewController new];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,5 +29,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
