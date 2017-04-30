@@ -12,6 +12,9 @@
 
 @interface ZKDownloader () <NSURLSessionDataDelegate>
 
+@property (nonatomic, copy) void (^progress)(CGFloat progress);
+@property (nonatomic, copy) void (^success)(NSString *cachePath);
+
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, assign) long long tempSize;
 @property (nonatomic, assign) long long totalSize;
@@ -25,6 +28,16 @@
 @implementation ZKDownloader
     
 - (void)downloadWithUrl:(NSURL *)url {
+    [self downloadWithUrl:url progress:nil success:nil];
+}
+
+- (void)downloadWithUrl:(NSURL *)url
+               progress:(void (^)(CGFloat))progress
+                success:(void (^)(NSString *))success {
+    
+    _progress = progress;
+    _success = success;
+    _tempSize = 0;
     
     BOOL taskExists =
     [url isEqual:_dataTask.originalRequest.URL] && _state == ZKDownloadStatePause;
@@ -107,6 +120,7 @@
     if (contentRangeStr.length) {
         _totalSize = [[contentRangeStr componentsSeparatedByString:@"/"].lastObject longLongValue];
     }
+    !_downloadInfo?:_downloadInfo(_totalSize);
     
     if (_tempSize == _totalSize) {
         DLog(@"下载完整，移动到下载完成文件夹");
@@ -131,6 +145,11 @@
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     [_outputStream write:data.bytes maxLength:data.length];
+    _tempSize += data.length;
+    
+    CGFloat progress = 1.f * _tempSize / _totalSize;
+    !_progress?:_progress(progress);
+    
     DLog(@"正在接收数据");
 }
 
@@ -153,7 +172,21 @@
     // 注意，到这里不一定成功，如果中间有字节重叠等错误，最后的数据是有问题的
     // 可以用 MD5 验证一下
     [ZKFileTool moveFile:_downloadingPath toPath:_downloadedPath];
+    DLog(@"已移动到下载完成文件夹");
     self.state = ZKDownloadStateSuccess;
+}
+
+#pragma mark - Setter {
+
+- (void)setState:(ZKDownloadState)state {
+    if (_state == state) {
+        return;
+    }
+    _state = state;
+    !_stateChangedCallback?:_stateChangedCallback(state);
+    if (state == ZKDownloadStateSuccess) {
+        !_success?:_success(_downloadedPath);
+    }
 }
 
 @end

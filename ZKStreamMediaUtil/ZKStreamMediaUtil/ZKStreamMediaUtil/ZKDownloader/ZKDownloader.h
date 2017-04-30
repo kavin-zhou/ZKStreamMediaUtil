@@ -17,9 +17,12 @@ typedef NS_ENUM(NSUInteger, ZKDownloadState) {
 
 @interface ZKDownloader : NSObject
 
-@property (nonatomic, assign) ZKDownloadState state;
+@property (nonatomic, assign, readonly) ZKDownloadState state;
+@property (nonatomic, copy) void(^downloadInfo)(long long totalSize);
+@property (nonatomic, copy) void(^stateChangedCallback)(ZKDownloadState state);
 
 - (void)downloadWithUrl:(NSURL *)url;
+- (void)downloadWithUrl:(NSURL *)url progress:(void(^)(CGFloat progress))progress success:(void(^)(NSString *cachePath))success;
 - (void)pauseCurrentTask;
 - (void)cancelCurrentTask;
 - (void)cancelAndClear;

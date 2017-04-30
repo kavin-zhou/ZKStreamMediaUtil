@@ -27,9 +27,12 @@
     
     NSURL *url = [NSURL URLWithString:@"http://down.kuwo.cn/mac/kwplayer_mac.dmg"];
     _downloader = [[ZKDownloader alloc] init];
-    [_downloader downloadWithUrl:url];
+    [_downloader downloadWithUrl:url progress:^(CGFloat progress) {
+        NSLog(@"进度%f", progress);
+    } success:^(NSString *cachePath) {
+        NSLog(@"保存路径%@", cachePath);
+    }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
