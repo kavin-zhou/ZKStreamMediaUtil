@@ -17,6 +17,8 @@
 		584BC6A51EB44EB0003BC055 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6A41EB44EB0003BC055 /* ViewController.m */; };
 		584BC6AA1EB44EB0003BC055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6A91EB44EB0003BC055 /* Assets.xcassets */; };
 		584BC6AD1EB44EB0003BC055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6AB1EB44EB0003BC055 /* LaunchScreen.storyboard */; };
+		589153FF1EB5A0AD0056FAA1 /* ZKDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 589153FE1EB5A0AD0056FAA1 /* ZKDownloadManager.m */; };
+		589154021EB5A25A0056FAA1 /* NSString+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154011EB5A25A0056FAA1 /* NSString+add.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,10 @@
 		584BC6AC1EB44EB0003BC055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		584BC6AE1EB44EB0003BC055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKGlobalHeader.h; sourceTree = "<group>"; };
+		589153FD1EB5A0AD0056FAA1 /* ZKDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKDownloadManager.h; sourceTree = "<group>"; };
+		589153FE1EB5A0AD0056FAA1 /* ZKDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKDownloadManager.m; sourceTree = "<group>"; };
+		589154001EB5A25A0056FAA1 /* NSString+add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+add.h"; sourceTree = "<group>"; };
+		589154011EB5A25A0056FAA1 /* NSString+add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+add.m"; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +89,10 @@
 				5845AAE61EB58688003C1AAC /* ZKDownloader.m */,
 				5845AAE71EB58688003C1AAC /* ZKFileTool.h */,
 				5845AAE81EB58688003C1AAC /* ZKFileTool.m */,
+				589153FD1EB5A0AD0056FAA1 /* ZKDownloadManager.h */,
+				589153FE1EB5A0AD0056FAA1 /* ZKDownloadManager.m */,
+				589154001EB5A25A0056FAA1 /* NSString+add.h */,
+				589154011EB5A25A0056FAA1 /* NSString+add.m */,
 			);
 			path = ZKDownloader;
 			sourceTree = "<group>";
@@ -276,6 +286,8 @@
 				5845AAE91EB58688003C1AAC /* ZKDownloader.m in Sources */,
 				584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */,
 				5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */,
+				589153FF1EB5A0AD0056FAA1 /* ZKDownloadManager.m in Sources */,
+				589154021EB5A25A0056FAA1 /* NSString+add.m in Sources */,
 				584BC69F1EB44EB0003BC055 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

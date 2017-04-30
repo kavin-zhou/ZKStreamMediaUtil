@@ -26,5 +26,6 @@ typedef NS_ENUM(NSUInteger, ZKDownloadState) {
 - (void)pauseCurrentTask;
 - (void)cancelCurrentTask;
 - (void)cancelAndClear;
+- (void)resumeCurrentTask;
 
 @end

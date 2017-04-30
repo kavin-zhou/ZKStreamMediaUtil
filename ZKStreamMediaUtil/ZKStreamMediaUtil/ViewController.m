@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ZKDownloader.h"
+#import "ZKDownloadManager.h"
 
 @interface ViewController ()
 
@@ -26,8 +26,8 @@
     // @"http://pinyin.sogou.com/mac/softdown.php"
     
     NSURL *url = [NSURL URLWithString:@"http://down.kuwo.cn/mac/kwplayer_mac.dmg"];
-    _downloader = [[ZKDownloader alloc] init];
-    [_downloader downloadWithUrl:url progress:^(CGFloat progress) {
+    
+    [[ZKDownloadManager shareInstance] downloadWithUrl:url progress:^(CGFloat progress) {
         NSLog(@"进度%f", progress);
     } success:^(NSString *cachePath) {
         NSLog(@"保存路径%@", cachePath);
