@@ -25,6 +25,7 @@
 		589154101EB5DC760056FAA1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5891540E1EB5DC760056FAA1 /* ViewController.xib */; };
 		589154131EB600440056FAA1 /* ZKResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154121EB600440056FAA1 /* ZKResourceLoaderDelegate.m */; };
 		589154161EB601710056FAA1 /* NSURL+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154151EB601710056FAA1 /* NSURL+Add.m */; };
+		589154191EB62A610056FAA1 /* ZKAudioFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154181EB62A610056FAA1 /* ZKAudioFileManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,8 @@
 		589154121EB600440056FAA1 /* ZKResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		589154141EB601710056FAA1 /* NSURL+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Add.h"; sourceTree = "<group>"; };
 		589154151EB601710056FAA1 /* NSURL+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Add.m"; sourceTree = "<group>"; };
+		589154171EB62A610056FAA1 /* ZKAudioFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioFileManager.h; sourceTree = "<group>"; };
+		589154181EB62A610056FAA1 /* ZKAudioFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioFileManager.m; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +183,8 @@
 				589154121EB600440056FAA1 /* ZKResourceLoaderDelegate.m */,
 				589154141EB601710056FAA1 /* NSURL+Add.h */,
 				589154151EB601710056FAA1 /* NSURL+Add.m */,
+				589154171EB62A610056FAA1 /* ZKAudioFileManager.h */,
+				589154181EB62A610056FAA1 /* ZKAudioFileManager.m */,
 			);
 			path = ZKAudioPlayer;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */,
 				5891540F1EB5DC760056FAA1 /* ViewController.m in Sources */,
 				5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */,
+				589154191EB62A610056FAA1 /* ZKAudioFileManager.m in Sources */,
 				589153FF1EB5A0AD0056FAA1 /* ZKDownloadManager.m in Sources */,
 				589154161EB601710056FAA1 /* NSURL+Add.m in Sources */,
 				589154131EB600440056FAA1 /* ZKResourceLoaderDelegate.m in Sources */,
