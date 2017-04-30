@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2775336753FAD7C7BB52EDEB /* Pods_ZKStreamMediaUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36AF8CA5A4D06DC2A4E09452 /* Pods_ZKStreamMediaUtil.framework */; };
 		584BC69F1EB44EB0003BC055 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC69E1EB44EB0003BC055 /* main.m */; };
 		584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6A11EB44EB0003BC055 /* AppDelegate.m */; };
 		584BC6A51EB44EB0003BC055 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6A41EB44EB0003BC055 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36AF8CA5A4D06DC2A4E09452 /* Pods_ZKStreamMediaUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZKStreamMediaUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		574D8B20ED184C1F5BDFB6C3 /* Pods-ZKStreamMediaUtil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.release.xcconfig"; sourceTree = "<group>"; };
 		584BC69A1EB44EB0003BC055 /* ZKStreamMediaUtil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKStreamMediaUtil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584BC69E1EB44EB0003BC055 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		584BC6A01EB44EB0003BC055 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,6 +34,7 @@
 		584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKGlobalHeader.h; sourceTree = "<group>"; };
 		584BC6B91EB45202003BC055 /* ZKFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFileTool.h; sourceTree = "<group>"; };
 		584BC6BA1EB45202003BC055 /* ZKFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFileTool.m; sourceTree = "<group>"; };
+		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,17 +42,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2775336753FAD7C7BB52EDEB /* Pods_ZKStreamMediaUtil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		155F953CCFC65FD97050124C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */,
+				574D8B20ED184C1F5BDFB6C3 /* Pods-ZKStreamMediaUtil.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		584BC6911EB44EB0003BC055 = {
 			isa = PBXGroup;
 			children = (
 				584BC69C1EB44EB0003BC055 /* ZKStreamMediaUtil */,
 				584BC69B1EB44EB0003BC055 /* Products */,
+				155F953CCFC65FD97050124C /* Pods */,
+				788ABC45FBD20B8EE0CAFB2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +112,14 @@
 			path = ZKStreamMediaUtil;
 			sourceTree = "<group>";
 		};
+		788ABC45FBD20B8EE0CAFB2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36AF8CA5A4D06DC2A4E09452 /* Pods_ZKStreamMediaUtil.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 584BC6B11EB44EB0003BC055 /* Build configuration list for PBXNativeTarget "ZKStreamMediaUtil" */;
 			buildPhases = (
+				590EF4F004BDF455A3402698 /* [CP] Check Pods Manifest.lock */,
 				584BC6961EB44EB0003BC055 /* Sources */,
 				584BC6971EB44EB0003BC055 /* Frameworks */,
 				584BC6981EB44EB0003BC055 /* Resources */,
+				4FC0546C6D6C6D7AA9A2B3D7 /* [CP] Embed Pods Frameworks */,
+				F971FCBF4236D47B41B4DC8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +188,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FC0546C6D6C6D7AA9A2B3D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		590EF4F004BDF455A3402698 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F971FCBF4236D47B41B4DC8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		584BC6961EB44EB0003BC055 /* Sources */ = {
@@ -281,6 +356,7 @@
 		};
 		584BC6B21EB44EB0003BC055 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TE2958KSXV;
@@ -294,6 +370,7 @@
 		};
 		584BC6B31EB44EB0003BC055 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 574D8B20ED184C1F5BDFB6C3 /* Pods-ZKStreamMediaUtil.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TE2958KSXV;

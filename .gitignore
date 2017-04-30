@@ -17,4 +17,6 @@ profile
 *.moved-aside
 DerivedData
 .idea/
-*.xcuserstate
+*/*.xcuserstate
+# Pods - for those of you who use CocoaPods
+Pods
