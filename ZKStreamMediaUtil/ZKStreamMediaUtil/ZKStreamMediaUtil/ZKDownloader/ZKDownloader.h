@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, ZKDownloadState) {
+    ZKDownloadStatePause = 0,
+    ZKDownloadStateDownloading,
+    ZKDownloadStateSuccess,
+    ZKDownloadStateFailed
+};
+
 @interface ZKDownloader : NSObject
+
+@property (nonatomic, assign) ZKDownloadState state;
 
 - (void)downloadWithUrl:(NSURL *)url;
 - (void)pauseCurrentTask;

@@ -23,7 +23,7 @@
 @end
 
 @implementation ZKDownloader
-
+    
 - (void)downloadWithUrl:(NSURL *)url {
     
     if ([url isEqual:_dataTask.originalRequest.URL]) { // 如果当前任务已经存在
@@ -38,6 +38,7 @@
     
     if ([ZKFileTool fileExists:_downloadedPath]) {
         DLog(@"已经存在下载好的文件");
+        self.state = ZKDownloadStateSuccess;
         return;
     }
     if (![ZKFileTool fileExists:_downloadingPath]) {
@@ -59,14 +60,19 @@
     [request setValue:[NSString stringWithFormat:@"bytes=%lld-", offset] forHTTPHeaderField:@"Range"];
     
     _dataTask = [_session dataTaskWithRequest:request];
-    [_dataTask resume];
+    [self resumeCurrentTask];
 }
 
 - (void)pauseCurrentTask {
+    if (self.state != ZKDownloadStateDownloading) {
+        return;
+    }
+    self.state = ZKDownloadStatePause;
     [_dataTask suspend];
 }
 
 - (void)cancelCurrentTask {
+    self.state = ZKDownloadStatePause;
     [self.session invalidateAndCancel];
     self.session = nil;
 }
@@ -77,7 +83,11 @@
 }
 
 - (void)resumeCurrentTask {
+    if (!_dataTask || self.state != ZKDownloadStatePause) {
+        return;
+    }
     [_dataTask resume];
+    self.state = ZKDownloadStateDownloading;
 }
 
 #pragma mark - <NSURLSessionDataDelegate>
@@ -100,6 +110,7 @@
         DLog(@"下载完整，移动到下载完成文件夹");
         [ZKFileTool moveFile:_downloadingPath toPath:_downloadedPath];
         completionHandler(NSURLSessionResponseCancel);
+        self.state = ZKDownloadStateSuccess;
     }
     else if (_tempSize > _totalSize) {
         DLog(@"下载出错，删除并重新下载");
@@ -112,6 +123,7 @@
         _outputStream = [NSOutputStream outputStreamToFileAtPath:_downloadingPath append:true];
         [_outputStream open];
         completionHandler(NSURLSessionResponseAllow);
+        self.state = ZKDownloadStateDownloading;
     }
 }
 
@@ -127,11 +139,19 @@
     
     if (error) {
         DLog(@"%@", error);
+        if (error.code == 999) { // 用户主动取消
+            self.state = ZKDownloadStatePause;
+        }
+        else {
+            self.state = ZKDownloadStateFailed;
+        }
+        
         return;
     }
     // 注意，到这里不一定成功，如果中间有字节重叠等错误，最后的数据是有问题的
     // 可以用 MD5 验证一下
-    
+    [ZKFileTool moveFile:_downloadingPath toPath:_downloadedPath];
+    self.state = ZKDownloadStateSuccess;
 }
 
 @end
