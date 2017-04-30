@@ -9,10 +9,17 @@
 #import "ZKAudioPlayerViewController.h"
 #import "ZKAudioPlayer.h"
 
+#define AudioPlayer  [ZKAudioPlayer shareInstance]
+
 @interface ZKAudioPlayerViewController ()
+
 @property (weak, nonatomic) IBOutlet UIProgressView *loadProgress;
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+@property (weak, nonatomic) IBOutlet UISlider *playProgress;
+@property (weak, nonatomic) IBOutlet UIButton *mutedBtn;
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
+@property (nonatomic, weak) NSTimer *timer;
 
 @end
 
@@ -20,6 +27,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupTimer];
+}
+
+- (void)setupTimer {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:true];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    _timer = timer;
+}
+
+- (void)update {
+    _playTimeLabel.text = AudioPlayer.currentTimeFormat;
+    _totalTimeLabel.text = AudioPlayer.totalTimeFormat;
+    _playProgress.value = AudioPlayer.progress;
+    _volumeSlider.value = AudioPlayer.volume;
+    _loadProgress.progress = AudioPlayer.loadDataProgress;
+    _mutedBtn.selected = AudioPlayer.muted;
 }
 
 #pragma mark - Action
@@ -30,32 +53,32 @@
 }
 
 - (IBAction)resume {
-    [[ZKAudioPlayer shareInstance] resume];
+    [AudioPlayer resume];
 }
 
 - (IBAction)pause {
-    [[ZKAudioPlayer shareInstance] pause];
+    [AudioPlayer pause];
 }
 
 - (IBAction)rate {
-    [[ZKAudioPlayer shareInstance] setRate:2.f];
+    [AudioPlayer setRate:2.f];
 }
 
 - (IBAction)seekProgress:(UISlider *)sender {
-    [[ZKAudioPlayer shareInstance] seekToProgress:sender.value];
+    [AudioPlayer seekToProgress:sender.value];
 }
 
 - (IBAction)muted:(UIButton *)btn {
     btn.selected = !btn.selected;
-    [[ZKAudioPlayer shareInstance] setMuted:btn.selected];
+    [AudioPlayer setMuted:btn.selected];
 }
 
 - (IBAction)volume:(UISlider *)sender {
-    [[ZKAudioPlayer shareInstance] setVolume:sender.value];
+    [AudioPlayer setVolume:sender.value];
 }
 
 - (IBAction)forward:(UIButton *)sender {
-    [[ZKAudioPlayer shareInstance] seekWithTimeDiffer:20];
+    [AudioPlayer seekWithTimeDiffer:20];
 }
 
 @end

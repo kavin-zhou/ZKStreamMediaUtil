@@ -12,9 +12,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZKAudioPlayerViewController">
             <connections>
                 <outlet property="loadProgress" destination="Gg2-87-Acf" id="MX7-4J-pLB"/>
+                <outlet property="mutedBtn" destination="7on-dj-Ekt" id="onQ-Ka-ani"/>
+                <outlet property="playProgress" destination="miz-OB-rGe" id="Mu9-H4-9qC"/>
                 <outlet property="playTimeLabel" destination="7Cg-8Z-Z8Q" id="X4I-s2-1nR"/>
                 <outlet property="totalTimeLabel" destination="Jp6-1P-wRz" id="dP0-lf-8Yx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="volumeSlider" destination="SsY-bb-j1K" id="Z0d-U3-iKa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -78,13 +81,13 @@
                         <action selector="muted:" destination="-1" eventType="touchUpInside" id="v6Z-Pm-sah"/>
                     </connections>
                 </button>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gg2-87-Acf">
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gg2-87-Acf">
                     <rect key="frame" x="20" y="380" width="335" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="fV3-p6-AO5"/>
                     </constraints>
                 </progressView>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="miz-OB-rGe">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="miz-OB-rGe">
                     <rect key="frame" x="18" y="320" width="339" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="ehJ-B4-Z68"/>
@@ -114,7 +117,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SsY-bb-j1K">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SsY-bb-j1K">
                     <rect key="frame" x="18" y="432" width="339" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="7le-wH-VmC"/>
