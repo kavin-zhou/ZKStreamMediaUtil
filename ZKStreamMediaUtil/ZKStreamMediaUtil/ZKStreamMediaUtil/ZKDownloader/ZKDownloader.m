@@ -139,7 +139,7 @@
     
     if (error) {
         DLog(@"%@", error);
-        if (error.code == 999) { // 用户主动取消
+        if (error.code == -999) { // 用户主动取消
             self.state = ZKDownloadStatePause;
         }
         else {
