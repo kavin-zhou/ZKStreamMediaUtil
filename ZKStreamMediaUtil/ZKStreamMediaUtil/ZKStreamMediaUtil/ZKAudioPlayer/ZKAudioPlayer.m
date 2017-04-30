@@ -12,6 +12,7 @@
 @interface ZKAudioPlayer ()
 
 @property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, assign) BOOL isUserPause; // 用户暂停
 
 @end
 
@@ -27,41 +28,96 @@
 }
 
 - (void)playWithUrl:(NSURL *)url {
+    
+    NSURL *currentUrl = [(AVURLAsset *)_player.currentItem.asset URL];
+    if ([currentUrl isEqual:url]) {
+        [self resume];
+        return;
+    }
+    
     _currentUrl = url;
+    
+    if (_player.currentItem) {
+        [self removeObserver];
+    }
     
     AVURLAsset *asset = [AVURLAsset assetWithURL:url];
     // 资源组织者
     AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
     
     [item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    [item addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePlayEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePlaybackStalled:) name:AVPlayerItemPlaybackStalledNotification object:nil];
     
     _player = [AVPlayer playerWithPlayerItem:item];
 }
+
+#pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"status"]) {
         AVPlayerStatus status = [change[NSKeyValueChangeNewKey] integerValue];
         if (status == AVPlayerItemStatusReadyToPlay) {
             NSLog(@"资源准备完成，可以播放");
-            [_player play];
+            [self resume];
         }
         else {
             NSLog(@"出错");
+            self.state = ZKAudioStateFailed;
+        }
+    }
+    else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
+        BOOL ready = [change[NSKeyValueChangeNewKey] boolValue];
+        if (ready) {
+            if (!_isUserPause) {
+                [self resume];
+            }
+        }
+        else {
+            self.state = ZKAudioStateLoading;
         }
     }
 }
 
+- (void)removeObserver {
+    [_player.currentItem removeObserver:self forKeyPath:@"status"];
+    [_player.currentItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+}
+
+- (void)handlePlayEnd:(NSNotification *)note {
+    NSLog(@"播放完毕");
+    self.state = ZKAudioStateStop;
+}
+
+- (void)handlePlaybackStalled:(NSNotification *)note {
+    NSLog(@"播放被打断 (电话或者资源加载问题)");
+    self.state = ZKAudioStatePause;
+}
+
 - (void)pause {
+    _isUserPause = true;
     [_player pause];
+    if (_player) {
+        self.state = ZKAudioStatePause;
+    }
 }
 
 - (void)resume {
     [_player play];
+    _isUserPause = false;
+    if (_player && _player.currentItem.playbackLikelyToKeepUp) {
+        self.state = ZKAudioStatePlaying;
+    }
 }
 
 - (void)stop {
     [_player pause];
     self.player = nil;
+    if (_player) {
+        self.state = ZKAudioStateStop;
+    }
 }
 
 - (void)seekWithTimeDiffer:(NSTimeInterval)timeDiffer {
@@ -126,20 +182,32 @@
 - (NSTimeInterval)totalTime {
     CMTime totalTime_CM = _player.currentItem.duration;
     NSTimeInterval totalTime_NS = CMTimeGetSeconds(totalTime_CM);
+    if (isnan(totalTime_NS)) {
+        return 0;
+    }
     return totalTime_NS;
 }
 
 - (NSTimeInterval)currentTime{
     CMTime playTime_CM = _player.currentItem.currentTime;
     NSTimeInterval playTime_NS = CMTimeGetSeconds(playTime_CM);
+    if (isnan(playTime_NS)) {
+        return 0;
+    }
     return playTime_NS;
 }
 
 - (CGFloat)progress {
+    if (self.totalTime == 0) {
+        return 0;
+    }
     return self.currentTime / self.totalTime;
 }
 
 - (CGFloat)loadDataProgress {
+    if (self.totalTime == 0) {
+        return 0;
+    }
     CMTimeRange timeRange = [[_player.currentItem loadedTimeRanges].lastObject CMTimeRangeValue];
     CMTime loadTime_CM = CMTimeAdd(timeRange.start, timeRange.duration);
     NSTimeInterval loadTime_NS = CMTimeGetSeconds(loadTime_CM);
@@ -155,6 +223,10 @@
 - (NSString *)totalTimeFormat {
     NSString *totalTimeStr = [NSString stringWithFormat:@"%02zd:%02zd", (int)self.totalTime / 60, (int)self.totalTime % 60];
     return totalTimeStr;
+}
+
+- (void)setState:(ZKAudioState)state {
+    _state = state;
 }
 
 @end

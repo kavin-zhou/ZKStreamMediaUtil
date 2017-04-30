@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, ZKAudioState) {
+    ZKAudioStateUnknown = 0,
+    ZKAudioStateLoading,
+    ZKAudioStatePlaying,
+    ZKAudioStateStop,
+    ZKAudioStatePause,
+    ZKAudioStateFailed
+};
+
 @interface ZKAudioPlayer : NSObject
 
 @property (nonatomic, assign, readonly) NSTimeInterval totalTime;
@@ -21,6 +30,8 @@
 @property (nonatomic, assign) BOOL muted;
 @property (nonatomic, assign) CGFloat volume;
 @property (nonatomic, assign) CGFloat rate;
+
+@property (nonatomic, assign, readonly) ZKAudioState state;
 
 + (instancetype)shareInstance;
 

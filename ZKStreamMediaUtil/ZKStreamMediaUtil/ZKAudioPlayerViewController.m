@@ -37,6 +37,8 @@
 }
 
 - (void)update {
+    NSLog(@"state==>%zd", AudioPlayer.state);
+    
     _playTimeLabel.text = AudioPlayer.currentTimeFormat;
     _totalTimeLabel.text = AudioPlayer.totalTimeFormat;
     _playProgress.value = AudioPlayer.progress;
