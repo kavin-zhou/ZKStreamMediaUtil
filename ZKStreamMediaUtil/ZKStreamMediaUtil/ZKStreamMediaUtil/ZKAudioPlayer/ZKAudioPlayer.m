@@ -8,11 +8,14 @@
 
 #import "ZKAudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ZKResourceLoaderDelegate.h"
+#import "NSURL+Add.h"
 
 @interface ZKAudioPlayer ()
 
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, assign) BOOL isUserPause; // 用户暂停
+@property (nonatomic, strong) ZKResourceLoaderDelegate *resourceLoaderDelegate;
 
 @end
 
@@ -28,13 +31,19 @@
 }
 
 - (void)playWithUrl:(NSURL *)url {
-    
+    [self playWithUrl:url shouldCache:false];
+}
+
+- (void)playWithUrl:(NSURL *)url shouldCache:(BOOL)shouldCache {
     NSURL *currentUrl = [(AVURLAsset *)_player.currentItem.asset URL];
     if ([currentUrl isEqual:url]) {
         [self resume];
         return;
     }
     
+    if (shouldCache) {
+        url = [url streamingURL];
+    }
     _currentUrl = url;
     
     if (_player.currentItem) {
@@ -42,6 +51,8 @@
     }
     
     AVURLAsset *asset = [AVURLAsset assetWithURL:url];
+    self.resourceLoaderDelegate = [ZKResourceLoaderDelegate new];
+    [asset.resourceLoader setDelegate:_resourceLoaderDelegate queue:dispatch_get_main_queue()];
     // 资源组织者
     AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
     

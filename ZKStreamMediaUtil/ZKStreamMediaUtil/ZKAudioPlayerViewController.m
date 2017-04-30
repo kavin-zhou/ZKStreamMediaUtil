@@ -51,7 +51,7 @@
 
 - (IBAction)play {
     NSURL *url = [NSURL URLWithString:@"http://op7sl7tu8.bkt.clouddn.com/08%20%E9%80%86%E9%B3%9E.m4a"];
-    [[ZKAudioPlayer shareInstance] playWithUrl:url];
+    [[ZKAudioPlayer shareInstance] playWithUrl:url shouldCache:true];
 }
 
 - (IBAction)resume {
