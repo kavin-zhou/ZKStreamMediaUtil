@@ -26,7 +26,9 @@
     
 - (void)downloadWithUrl:(NSURL *)url {
     
-    if ([url isEqual:_dataTask.originalRequest.URL]) { // 如果当前任务已经存在
+    BOOL taskExists =
+    [url isEqual:_dataTask.originalRequest.URL] && _state == ZKDownloadStatePause;
+    if (taskExists) { // 如果当前任务已经存在
         [self resumeCurrentTask];
         return;
     }
