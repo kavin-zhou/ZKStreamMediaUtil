@@ -31,6 +31,7 @@
 		58DDC7271EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7261EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m */; };
 		58DDC7331EB73E9900E1ADE0 /* ZKAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */; };
 		58DDC7381EB745F400E1ADE0 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DDC7371EB745F400E1ADE0 /* libmp3lame.a */; };
+		58DDC73B1EB7464300E1ADE0 /* LameTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC73A1EB7464300E1ADE0 /* LameTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioRecorder.m; sourceTree = "<group>"; };
 		58DDC7351EB745F400E1ADE0 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		58DDC7371EB745F400E1ADE0 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		58DDC7391EB7464300E1ADE0 /* LameTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LameTool.h; sourceTree = "<group>"; };
+		58DDC73A1EB7464300E1ADE0 /* LameTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LameTool.m; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +252,8 @@
 		58DDC7341EB745F400E1ADE0 /* Lame */ = {
 			isa = PBXGroup;
 			children = (
+				58DDC7391EB7464300E1ADE0 /* LameTool.h */,
+				58DDC73A1EB7464300E1ADE0 /* LameTool.m */,
 				58DDC7351EB745F400E1ADE0 /* lame.h */,
 				58DDC7361EB745F400E1ADE0 /* lib */,
 			);
@@ -402,6 +407,7 @@
 				5845AAE91EB58688003C1AAC /* ZKDownloader.m in Sources */,
 				584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */,
 				5891540F1EB5DC760056FAA1 /* ViewController.m in Sources */,
+				58DDC73B1EB7464300E1ADE0 /* LameTool.m in Sources */,
 				5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */,
 				58DDC7271EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m in Sources */,
 				58DDC7331EB73E9900E1ADE0 /* ZKAudioRecorder.m in Sources */,
