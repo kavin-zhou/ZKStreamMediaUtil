@@ -27,7 +27,7 @@
         
         NSURL *url = [NSURL URLWithString:self.recordPath];
         NSMutableDictionary *recordSetting = [NSMutableDictionary dictionary];
-        recordSetting[AVFormatIDKey] = @(kAudioFormatMPEG4AAC);
+        recordSetting[AVFormatIDKey] = @(kAudioFormatLinearPCM);
         recordSetting[AVSampleRateKey] = @(11025.0);
         recordSetting[AVNumberOfChannelsKey] = @(2);
         recordSetting[AVEncoderAudioQualityKey] = @(AVAudioQualityMin);
@@ -64,6 +64,11 @@
 - (void)restartRecord {
     self.audioRecorder = nil;
     [self startRecordWithRecordPath:self.recordPath];
+}
+
+- (float)peakPowerForChannel0 {
+    [self.audioRecorder updateMeters];
+    return [self.audioRecorder peakPowerForChannel:0];
 }
 
 @end

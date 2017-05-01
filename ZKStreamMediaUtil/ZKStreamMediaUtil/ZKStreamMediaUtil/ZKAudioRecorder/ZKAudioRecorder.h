@@ -16,4 +16,11 @@
 - (void)deleteRecord;
 - (void)restartRecord;
 
+/**
+ *  录音文件路径
+ */
+@property (nonatomic, copy, readonly) NSString *recordPath;
+- (void)updateMeters;
+- (float)peakPowerForChannel0;
+
 @end

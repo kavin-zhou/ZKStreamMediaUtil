@@ -32,6 +32,7 @@
 		58DDC7331EB73E9900E1ADE0 /* ZKAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */; };
 		58DDC7381EB745F400E1ADE0 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DDC7371EB745F400E1ADE0 /* libmp3lame.a */; };
 		58DDC73B1EB7464300E1ADE0 /* LameTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC73A1EB7464300E1ADE0 /* LameTool.m */; };
+		58DDC73E1EB74A8000E1ADE0 /* ZKAudioEditTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC73D1EB74A8000E1ADE0 /* ZKAudioEditTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,8 @@
 		58DDC7371EB745F400E1ADE0 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		58DDC7391EB7464300E1ADE0 /* LameTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LameTool.h; sourceTree = "<group>"; };
 		58DDC73A1EB7464300E1ADE0 /* LameTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LameTool.m; sourceTree = "<group>"; };
+		58DDC73C1EB74A8000E1ADE0 /* ZKAudioEditTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioEditTool.h; sourceTree = "<group>"; };
+		58DDC73D1EB74A8000E1ADE0 /* ZKAudioEditTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioEditTool.m; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +248,8 @@
 				58DDC7341EB745F400E1ADE0 /* Lame */,
 				58DDC7311EB73E9800E1ADE0 /* ZKAudioRecorder.h */,
 				58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */,
+				58DDC73C1EB74A8000E1ADE0 /* ZKAudioEditTool.h */,
+				58DDC73D1EB74A8000E1ADE0 /* ZKAudioEditTool.m */,
 			);
 			path = ZKAudioRecorder;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				5891540B1EB5D0CB0056FAA1 /* ZKAudioPlayer.m in Sources */,
 				584BC69F1EB44EB0003BC055 /* main.m in Sources */,
 				5891541C1EB6D01E0056FAA1 /* ZKAudioDownloader.m in Sources */,
+				58DDC73E1EB74A8000E1ADE0 /* ZKAudioEditTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +546,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZKStreamMediaUtil/ZKStreamMediaUtil/ZKAudioRecorder/Lame/lib",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"GPUImage\"",
+					"-framework",
+					"\"Masonry\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.ZKStreamMediaUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -558,6 +571,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZKStreamMediaUtil/ZKStreamMediaUtil/ZKAudioRecorder/Lame/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"GPUImage\"",
+					"-framework",
+					"\"Masonry\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.ZKStreamMediaUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
