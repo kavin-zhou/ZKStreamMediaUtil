@@ -11,5 +11,6 @@
 @interface NSURL (Add)
 
 - (NSURL *)streamingURL;
+- (NSURL *)httpURL;
 
 @end

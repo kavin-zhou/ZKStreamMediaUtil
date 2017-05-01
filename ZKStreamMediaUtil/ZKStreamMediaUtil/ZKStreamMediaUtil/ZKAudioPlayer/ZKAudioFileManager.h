@@ -13,6 +13,13 @@
 + (NSString *)cacaheFilePathWithUrl:(NSURL *)url;
 + (BOOL)cacheFileExists:(NSURL *)url;
 + (long long)cacheFileSize:(NSURL *)url;
+
++ (NSString *)tempFilePathWithUrl:(NSURL *)url;
++ (long long)tempFileSize:(NSURL *)url;
+
 + (NSString *)contentTypeWithUrl:(NSURL *)url;
++ (void)moveTempFileToCacheWithUrl:(NSURL *)url;
+
++ (void)clearTempFile:(NSURL *)url;
 
 @end

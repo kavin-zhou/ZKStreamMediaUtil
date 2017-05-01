@@ -8,6 +8,14 @@
 
 #import "ZKResourceLoaderDelegate.h"
 #import "ZKAudioFileManager.h"
+#import "ZKAudioDownloader.h"
+#import "NSURL+Add.h"
+
+@interface ZKResourceLoaderDelegate ()
+
+@property (nonatomic, strong) ZKAudioDownloader *downloader;
+
+@end
 
 @implementation ZKResourceLoaderDelegate
 
@@ -21,6 +29,10 @@
     if ([ZKAudioFileManager cacheFileExists:url]) {
         [self handleCachedWithLoadingRequest:loadingRequest];
     }
+    else if (self.downloader.loadedSize == 0) {
+        [self.downloader downloadWithUrl:[url httpURL] offset:<#(long long)#>]
+    }
+    
     
     
     return true;
@@ -49,6 +61,13 @@
     NSData *subData = [data subdataWithRange:NSMakeRange(requestOffset, requestLength)];
     
     [loadingRequest.dataRequest respondWithData:subData];
+}
+
+- (ZKAudioDownloader *)downloader {
+    if (!_downloader) {
+        _downloader = [ZKAudioDownloader new];
+    }
+    return _downloader;
 }
 
 @end

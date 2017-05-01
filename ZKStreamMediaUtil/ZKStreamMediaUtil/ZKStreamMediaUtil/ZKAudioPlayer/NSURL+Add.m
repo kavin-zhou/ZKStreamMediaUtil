@@ -17,4 +17,11 @@
     return components.URL;
 }
 
+- (NSURL *)httpURL {
+    NSURLComponents *components = [NSURLComponents componentsWithString:self.absoluteString];
+    // 更换协议头
+    components.scheme = @"http";
+    return components.URL;
+}
+
 @end

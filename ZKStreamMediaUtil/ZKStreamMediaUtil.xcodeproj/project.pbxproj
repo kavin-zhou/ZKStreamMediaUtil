@@ -26,6 +26,7 @@
 		589154131EB600440056FAA1 /* ZKResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154121EB600440056FAA1 /* ZKResourceLoaderDelegate.m */; };
 		589154161EB601710056FAA1 /* NSURL+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154151EB601710056FAA1 /* NSURL+Add.m */; };
 		589154191EB62A610056FAA1 /* ZKAudioFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154181EB62A610056FAA1 /* ZKAudioFileManager.m */; };
+		5891541C1EB6D01E0056FAA1 /* ZKAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5891541B1EB6D01E0056FAA1 /* ZKAudioDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		589154151EB601710056FAA1 /* NSURL+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Add.m"; sourceTree = "<group>"; };
 		589154171EB62A610056FAA1 /* ZKAudioFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioFileManager.h; sourceTree = "<group>"; };
 		589154181EB62A610056FAA1 /* ZKAudioFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioFileManager.m; sourceTree = "<group>"; };
+		5891541A1EB6D01E0056FAA1 /* ZKAudioDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioDownloader.h; sourceTree = "<group>"; };
+		5891541B1EB6D01E0056FAA1 /* ZKAudioDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioDownloader.m; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +188,8 @@
 				589154151EB601710056FAA1 /* NSURL+Add.m */,
 				589154171EB62A610056FAA1 /* ZKAudioFileManager.h */,
 				589154181EB62A610056FAA1 /* ZKAudioFileManager.m */,
+				5891541A1EB6D01E0056FAA1 /* ZKAudioDownloader.h */,
+				5891541B1EB6D01E0056FAA1 /* ZKAudioDownloader.m */,
 			);
 			path = ZKAudioPlayer;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				589154021EB5A25A0056FAA1 /* NSString+add.m in Sources */,
 				5891540B1EB5D0CB0056FAA1 /* ZKAudioPlayer.m in Sources */,
 				584BC69F1EB44EB0003BC055 /* main.m in Sources */,
+				5891541C1EB6D01E0056FAA1 /* ZKAudioDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
