@@ -19,6 +19,7 @@
 @property (nonatomic, strong) GPUImageMovieWriter *movieWriter;
 @property (nonatomic, strong) GPUImageView *filterView;
 @property (nonatomic, strong) UIButton *recordBtn;
+@property (nonatomic, strong) UIButton *rotateBtn;
 
 @end
 
@@ -26,9 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupUI];
-    
     [self setupVideoCamera];
 }
 
@@ -40,15 +39,25 @@
     
     [_recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(100);
-        make.right.mas_equalTo(20);
+        make.left.mas_equalTo(20);
         make.size.mas_equalTo(CGSizeMake(100, 30));
     }];
     [_recordBtn addTarget:self action:@selector(recordBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _rotateBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_rotateBtn setTitle:@"旋转摄像头" forState:UIControlStateNormal];
+    [self.view addSubview:_rotateBtn];
+    [_rotateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_recordBtn.mas_bottom).offset(10);
+        make.left.mas_equalTo(20);
+        make.size.mas_equalTo(CGSizeMake(100, 30));
+    }];
+    [_rotateBtn addTarget:self action:@selector(rotateBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setupVideoCamera {
     _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];
-    _videoCamera.outputImageOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     _videoCamera.horizontallyMirrorRearFacingCamera = false;
     
     _filter = [[GPUImageBeautifyFilter alloc] init];
@@ -61,6 +70,10 @@
     [_videoCamera startCameraCapture];
 }
 
+- (void)rotateBtnClick {
+    [_videoCamera rotateCamera];
+}
+
 - (void)recordBtnClick:(UIButton *)btn {
     btn.selected = !btn.selected;
     
@@ -70,6 +83,7 @@
     if (btn.selected) {
         unlink([moviePath UTF8String]);
         _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:self.view.bounds.size];
+        // 对视频进行编码，否则会非常大
         _movieWriter.encodingLiveVideo = true;
         [_filter addTarget:_movieWriter];
         _videoCamera.audioEncodingTarget = _movieWriter;
