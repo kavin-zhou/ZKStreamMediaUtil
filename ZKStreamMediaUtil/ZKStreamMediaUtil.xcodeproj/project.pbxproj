@@ -30,6 +30,7 @@
 		58DDC7231EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7221EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m */; };
 		58DDC7271EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7261EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m */; };
 		58DDC7331EB73E9900E1ADE0 /* ZKAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */; };
+		58DDC7381EB745F400E1ADE0 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DDC7371EB745F400E1ADE0 /* libmp3lame.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		58DDC7261EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
 		58DDC7311EB73E9800E1ADE0 /* ZKAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioRecorder.h; sourceTree = "<group>"; };
 		58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioRecorder.m; sourceTree = "<group>"; };
+		58DDC7351EB745F400E1ADE0 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		58DDC7371EB745F400E1ADE0 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2775336753FAD7C7BB52EDEB /* Pods_ZKStreamMediaUtil.framework in Frameworks */,
+				58DDC7381EB745F400E1ADE0 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,10 +239,28 @@
 		58DDC7301EB73E7F00E1ADE0 /* ZKAudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				58DDC7341EB745F400E1ADE0 /* Lame */,
 				58DDC7311EB73E9800E1ADE0 /* ZKAudioRecorder.h */,
 				58DDC7321EB73E9900E1ADE0 /* ZKAudioRecorder.m */,
 			);
 			path = ZKAudioRecorder;
+			sourceTree = "<group>";
+		};
+		58DDC7341EB745F400E1ADE0 /* Lame */ = {
+			isa = PBXGroup;
+			children = (
+				58DDC7351EB745F400E1ADE0 /* lame.h */,
+				58DDC7361EB745F400E1ADE0 /* lib */,
+			);
+			path = Lame;
+			sourceTree = "<group>";
+		};
+		58DDC7361EB745F400E1ADE0 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				58DDC7371EB745F400E1ADE0 /* libmp3lame.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		788ABC45FBD20B8EE0CAFB2F /* Frameworks */ = {
@@ -508,6 +530,10 @@
 				INFOPLIST_FILE = ZKStreamMediaUtil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZKStreamMediaUtil/ZKStreamMediaUtil/ZKAudioRecorder/Lame/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.ZKStreamMediaUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -523,6 +549,10 @@
 				INFOPLIST_FILE = ZKStreamMediaUtil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZKStreamMediaUtil/ZKStreamMediaUtil/ZKAudioRecorder/Lame/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.ZKStreamMediaUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
