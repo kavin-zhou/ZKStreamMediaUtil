@@ -18,6 +18,15 @@
 
 @implementation ZKAudioRecorder
 
++ (instancetype)shareInstance {
+    static ZKAudioRecorder *shareInstance_;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shareInstance_ = [ZKAudioRecorder new];
+    });
+    return shareInstance_;
+}
+
 #pragma mark - Lazy Loading
 
 - (AVAudioRecorder *)audioRecorder {

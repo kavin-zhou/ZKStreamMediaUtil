@@ -13,6 +13,7 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     if (![fm fileExistsAtPath:sourcePath]) {
         NSLog(@"文件不存在");
+        return nil;
     }
 
     // 输出路径

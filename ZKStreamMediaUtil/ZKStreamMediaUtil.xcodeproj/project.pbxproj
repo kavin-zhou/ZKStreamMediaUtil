@@ -34,6 +34,8 @@
 		58DDC73B1EB7464300E1ADE0 /* LameTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC73A1EB7464300E1ADE0 /* LameTool.m */; };
 		58DDC73E1EB74A8000E1ADE0 /* ZKAudioEditTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC73D1EB74A8000E1ADE0 /* ZKAudioEditTool.m */; };
 		58DDC7411EB74E8700E1ADE0 /* ZKLocalAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7401EB74E8700E1ADE0 /* ZKLocalAudioPlayer.m */; };
+		58DDC7451EB750C200E1ADE0 /* ZKAudioRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7431EB750C200E1ADE0 /* ZKAudioRecorderViewController.m */; };
+		58DDC7461EB750C200E1ADE0 /* ZKAudioRecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DDC7441EB750C200E1ADE0 /* ZKAudioRecorderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,9 @@
 		58DDC73D1EB74A8000E1ADE0 /* ZKAudioEditTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioEditTool.m; sourceTree = "<group>"; };
 		58DDC73F1EB74E8700E1ADE0 /* ZKLocalAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKLocalAudioPlayer.h; sourceTree = "<group>"; };
 		58DDC7401EB74E8700E1ADE0 /* ZKLocalAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKLocalAudioPlayer.m; sourceTree = "<group>"; };
+		58DDC7421EB750C200E1ADE0 /* ZKAudioRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioRecorderViewController.h; sourceTree = "<group>"; };
+		58DDC7431EB750C200E1ADE0 /* ZKAudioRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioRecorderViewController.m; sourceTree = "<group>"; };
+		58DDC7441EB750C200E1ADE0 /* ZKAudioRecorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZKAudioRecorderViewController.xib; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +175,9 @@
 				589154041EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.h */,
 				589154051EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.m */,
 				589154061EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.xib */,
+				58DDC7421EB750C200E1ADE0 /* ZKAudioRecorderViewController.h */,
+				58DDC7431EB750C200E1ADE0 /* ZKAudioRecorderViewController.m */,
+				58DDC7441EB750C200E1ADE0 /* ZKAudioRecorderViewController.xib */,
 				584BC6B41EB44F68003BC055 /* ZKStreamMediaUtil */,
 				584BC69D1EB44EB0003BC055 /* Supporting Files */,
 			);
@@ -349,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				584BC6AD1EB44EB0003BC055 /* LaunchScreen.storyboard in Resources */,
+				58DDC7461EB750C200E1ADE0 /* ZKAudioRecorderViewController.xib in Resources */,
 				589154081EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.xib in Resources */,
 				589154101EB5DC760056FAA1 /* ViewController.xib in Resources */,
 				584BC6AA1EB44EB0003BC055 /* Assets.xcassets in Resources */,
@@ -410,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58DDC7451EB750C200E1ADE0 /* ZKAudioRecorderViewController.m in Sources */,
 				5845AAEE1EB586B7003C1AAC /* ZKFilterPreviewViewController.m in Sources */,
 				5845AAF21EB5882C003C1AAC /* ZKFilterOptionView.m in Sources */,
 				58DDC7231EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m in Sources */,

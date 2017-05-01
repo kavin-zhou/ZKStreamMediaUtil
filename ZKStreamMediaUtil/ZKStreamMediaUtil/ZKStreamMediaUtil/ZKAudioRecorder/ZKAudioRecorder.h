@@ -10,6 +10,8 @@
 
 @interface ZKAudioRecorder : NSObject
 
++ (instancetype)shareInstance;
+
 - (void)startRecordWithRecordPath:(NSString *)recordPath;
 - (void)endRecord;
 - (void)pauseRecord;

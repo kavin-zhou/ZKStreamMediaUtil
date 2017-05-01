@@ -13,7 +13,7 @@
 
 + (instancetype)shareInstance;
 
-- (AVAudioPlayer *)playAudioWith:(NSString *)audioPath;
+- (AVAudioPlayer *)playAudioWithPath:(NSString *)audioPath;
 
 - (void)resumeCurrentAudio;
 

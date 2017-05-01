@@ -25,7 +25,7 @@
     return shareInstance_;
 }
 
-- (AVAudioPlayer *)playAudioWith:(NSString *)audioPath {
+- (AVAudioPlayer *)playAudioWithPath:(NSString *)audioPath {
     NSURL *url = [NSURL URLWithString:audioPath];
     if (!url) {
         url = [[NSBundle mainBundle] URLForResource:audioPath.lastPathComponent withExtension:nil];
