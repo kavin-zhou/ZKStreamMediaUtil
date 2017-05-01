@@ -26,7 +26,7 @@
     UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navc;
     
-    
+    NSLog(@"\n%@\n", NSHomeDirectory());
     
     // Override point for customization after application launch.
     return YES;
@@ -46,7 +46,7 @@
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
 }
 
 

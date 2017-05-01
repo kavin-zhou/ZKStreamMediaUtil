@@ -10,7 +10,7 @@
 
 @interface ZKAudioFileManager : NSObject
 
-+ (NSString *)cacaheFilePathWithUrl:(NSURL *)url;
++ (NSString *)cacheFilePathWithUrl:(NSURL *)url;
 + (BOOL)cacheFileExists:(NSURL *)url;
 + (long long)cacheFileSize:(NSURL *)url;
 

@@ -15,17 +15,17 @@
 
 @implementation ZKAudioFileManager
 
-+ (NSString *)cacaheFilePathWithUrl:(NSURL *)url {
++ (NSString *)cacheFilePathWithUrl:(NSURL *)url {
     return [CacheDirPath stringByAppendingPathComponent:url.lastPathComponent];
 }
 
 + (BOOL)cacheFileExists:(NSURL *)url {
-    NSString *path = [self cacaheFilePathWithUrl:url];
+    NSString *path = [self cacheFilePathWithUrl:url];
     return [ZKFileTool fileExists:path];
 }
 
 + (long long)cacheFileSize:(NSURL *)url {
-    NSString *path = [self cacaheFilePathWithUrl:url];
+    NSString *path = [self cacheFilePathWithUrl:url];
     if (![ZKFileTool fileExists:path]) {
         return 0;
     }
@@ -33,7 +33,7 @@
 }
 
 + (NSString *)contentTypeWithUrl:(NSURL *)url {
-    NSString *path = [self cacaheFilePathWithUrl:url];
+    NSString *path = [self cacheFilePathWithUrl:url];
     NSString *fileExtension = path.pathExtension;
     
     CFStringRef contentType_CF = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef _Nonnull)(fileExtension), NULL);
@@ -55,7 +55,7 @@
 
 + (void)moveTempFileToCacheWithUrl:(NSURL *)url {
     NSString *tempPath = [self tempFilePathWithUrl:url];
-    NSString *cachePath = [self cacaheFilePathWithUrl:url];
+    NSString *cachePath = [self cacheFilePathWithUrl:url];
     [ZKFileTool moveFile:tempPath toPath:cachePath];
 }
 

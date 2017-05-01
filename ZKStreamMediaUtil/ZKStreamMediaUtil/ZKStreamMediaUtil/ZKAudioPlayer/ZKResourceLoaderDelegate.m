@@ -78,8 +78,10 @@
         loadingRequest.contentInformationRequest.byteRangeAccessSupported = true;
         
         // 填充数据
-        NSString *path = [ZKAudioFileManager tempFilePathWithUrl:url];
-        NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:nil];
+        NSData *data = [NSData dataWithContentsOfFile:[ZKAudioFileManager tempFilePathWithUrl:url] options:NSDataReadingMappedIfSafe error:nil];
+        if (!data) {
+            data = [NSData dataWithContentsOfFile:[ZKAudioFileManager cacheFilePathWithUrl:url] options:NSDataReadingMappedIfSafe error:nil];
+        }
         
         long long currentOffset = loadingRequest.dataRequest.currentOffset;
         NSInteger requestLength = loadingRequest.dataRequest.requestedLength;
@@ -112,7 +114,8 @@
     
     // 返回相应的数据给外界
     // 注意，option选择NSDataReadingMappedIfSafe是以内存映射方式，防止内存峰值
-    NSData *data = [NSData dataWithContentsOfFile:[ZKAudioFileManager cacaheFilePathWithUrl:url] options:NSDataReadingMappedIfSafe error:nil];
+    NSData *data = [NSData dataWithContentsOfFile:[ZKAudioFileManager cacheFilePathWithUrl:url] options:NSDataReadingMappedIfSafe error:nil];
+    
     // 注意不能一次性将data传出去，要根据请求字节信息进行传递
     long long requestOffset = loadingRequest.dataRequest.requestedOffset;
     NSInteger requestLength = loadingRequest.dataRequest.requestedLength;
