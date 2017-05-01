@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSOutputStream *outputStream;
-@property (nonatomic, assign) long long totalSize;
 @property (nonatomic, strong) NSURL *currentUrl;
 
 @end
@@ -23,6 +22,7 @@
 - (void)downloadWithUrl:(NSURL *)url offset:(long long)offset {
     [self cancelAndClear];
     _currentUrl = url;
+    _offset = offset;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
     NSString *value = [NSString stringWithFormat:@"bytes=%lld-", offset];
@@ -57,6 +57,7 @@
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+    _mimeType = httpResponse.MIMEType;
     
     _totalSize = [httpResponse.allHeaderFields[@"Content-Length"] longLongValue];
     NSString *contentRangeStr = httpResponse.allHeaderFields[@"Content-Range"];
@@ -72,6 +73,9 @@
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     _loadedSize += data.length;
     [_outputStream write:data.bytes maxLength:data.length];
+    if ([self.delegate respondsToSelector:@selector(audioDownloaderIsDownloading:)]) {
+        [self.delegate audioDownloaderIsDownloading:self];
+    }
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
