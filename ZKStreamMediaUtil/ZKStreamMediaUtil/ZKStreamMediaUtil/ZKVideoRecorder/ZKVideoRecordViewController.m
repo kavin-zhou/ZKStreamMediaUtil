@@ -8,6 +8,7 @@
 
 #import "ZKVideoRecordViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 #import <GPUImage/GPUImage.h>
 #import "GPUImageBeautifyFilter.h"
 
@@ -48,6 +49,7 @@
 - (void)setupVideoCamera {
     _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];
     _videoCamera.outputImageOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    _videoCamera.horizontallyMirrorRearFacingCamera = false;
     
     _filter = [[GPUImageBeautifyFilter alloc] init];
     _filterView = [[GPUImageView alloc] init];
@@ -62,12 +64,12 @@
 - (void)recordBtnClick:(UIButton *)btn {
     btn.selected = !btn.selected;
     
-    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie4.mp4"];
-    NSURL *movieURL = [NSURL fileURLWithPath:pathToMovie];
+    NSString *moviePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie4.mp4"];
+    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
     
     if (btn.selected) {
-        unlink([pathToMovie UTF8String]);
-        _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480.0, 640.0)];
+        unlink([moviePath UTF8String]);
+        _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:self.view.bounds.size];
         _movieWriter.encodingLiveVideo = true;
         [_filter addTarget:_movieWriter];
         _videoCamera.audioEncodingTarget = _movieWriter;
@@ -77,25 +79,50 @@
         [_filter removeTarget:_movieWriter];
         _videoCamera.audioEncodingTarget = nil;
         [_movieWriter finishRecording];
+        [self writeVideoToLibraryWithPath:moviePath];
+    }
+}
+
+- (void)writeVideoToLibraryWithPath:(NSString *)moviePath {
+    
+    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue < 9) {
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(pathToMovie))
-        {
-            [library writeVideoAtPathToSavedPhotosAlbum:movieURL completionBlock:^(NSURL *assetURL, NSError *error)
-             {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     
-                     if (error) {
-                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"视频保存失败" message:nil
-                                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                         [alert show];
-                     } else {
-                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"视频保存成功" message:nil
-                                                                        delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                         [alert show];
-                     }
-                 });
-             }];
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(moviePath)) {
+            [library writeVideoAtPathToSavedPhotosAlbum:movieURL completionBlock:^(NSURL *assetURL, NSError *error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *msg = @"";
+                    if (error) {
+                        msg = @"视频保存失败";
+                    } else {
+                        msg = @"视频保存成功";
+                    }
+                    UIAlertView *alert =
+                    [[UIAlertView alloc] initWithTitle:msg message:nil
+                                              delegate:self
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+                    [alert show];
+                });
+            }];
         }
+    }
+    else {
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:movieURL];
+        } completionHandler:^(BOOL success, NSError *error) {
+            NSString *msg = @"";
+            if (!success) {
+                msg = @"保存失败";
+            }
+            else {
+                msg = @"保存成功";
+            }
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertController animated:true completion:nil];
+        }];
     }
 }
 
