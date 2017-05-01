@@ -85,6 +85,7 @@
     }
     // tempSize == fileSize, temp => cache
     if ([ZKAudioFileManager tempFileSize:_currentUrl] == _totalSize) {
+        [_outputStream close];
         [ZKAudioFileManager moveTempFileToCacheWithUrl:_currentUrl];
     }
 }
