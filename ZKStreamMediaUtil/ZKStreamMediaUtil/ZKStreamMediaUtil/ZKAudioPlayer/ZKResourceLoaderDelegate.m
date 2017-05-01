@@ -41,11 +41,11 @@
     
     // 没有缓存，判断有没有在下载，没有在下载就下载
     if (self.downloader.loadedSize == 0) {
-        [self.downloader downloadWithUrl:httpUrl offset:currentOffset];
+        [self.downloader downloadWithUrl:httpUrl offset:0];
         return true;
     }
     if (currentOffset < self.downloader.offset || currentOffset > (self.downloader.offset + self.downloader.loadedSize + 500)) {
-        [self.downloader downloadWithUrl:httpUrl offset:currentOffset];
+        [self.downloader downloadWithUrl:httpUrl offset:0];
         return true;
     }
     
@@ -122,6 +122,9 @@
     NSData *subData = [data subdataWithRange:NSMakeRange(requestOffset, requestLength)];
     
     [loadingRequest.dataRequest respondWithData:subData];
+    
+    // 别忘了完成请求，否则不会将数据传递给外面
+    [loadingRequest finishLoading];
 }
 
 - (ZKAudioDownloader *)downloader {
