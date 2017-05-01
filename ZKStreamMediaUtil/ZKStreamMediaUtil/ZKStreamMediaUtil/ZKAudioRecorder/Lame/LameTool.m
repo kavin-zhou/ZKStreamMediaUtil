@@ -4,7 +4,8 @@
 
 @implementation LameTool
 
-+ (NSString *)audioToMP3: (NSString *)sourcePath shouldDeleteSourchFile:(BOOL)shouldDelete {
++ (NSString *)audioPCMToMP3: (NSString *)sourcePath
+     shouldDeleteSourchFile:(BOOL)shouldDelete {
     // 输入路径
     NSString *inPath = sourcePath;
 

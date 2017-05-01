@@ -3,6 +3,6 @@
 
 @interface LameTool : NSObject
 
-+ (NSString *)audioToMP3: (NSString *)sourcePath shouldDeleteSourchFile: (BOOL)shouldDelete;
++ (NSString *)audioPCMToMP3: (NSString *)sourcePath shouldDeleteSourchFile: (BOOL)shouldDelete;
 
 @end
