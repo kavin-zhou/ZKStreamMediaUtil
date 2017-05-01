@@ -58,7 +58,7 @@
 - (void)setupVideoCamera {
     _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];
     _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    _videoCamera.horizontallyMirrorRearFacingCamera = false;
+    _videoCamera.horizontallyMirrorFrontFacingCamera = true;
     
     _filter = [[GPUImageBeautifyFilter alloc] init];
     _filterView = [[GPUImageView alloc] init];
