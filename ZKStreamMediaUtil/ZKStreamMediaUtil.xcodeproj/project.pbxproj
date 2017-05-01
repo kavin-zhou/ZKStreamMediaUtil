@@ -27,6 +27,8 @@
 		589154161EB601710056FAA1 /* NSURL+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154151EB601710056FAA1 /* NSURL+Add.m */; };
 		589154191EB62A610056FAA1 /* ZKAudioFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154181EB62A610056FAA1 /* ZKAudioFileManager.m */; };
 		5891541C1EB6D01E0056FAA1 /* ZKAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5891541B1EB6D01E0056FAA1 /* ZKAudioDownloader.m */; };
+		58DDC7231EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7221EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m */; };
+		58DDC7271EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDC7261EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,10 @@
 		589154181EB62A610056FAA1 /* ZKAudioFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioFileManager.m; sourceTree = "<group>"; };
 		5891541A1EB6D01E0056FAA1 /* ZKAudioDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAudioDownloader.h; sourceTree = "<group>"; };
 		5891541B1EB6D01E0056FAA1 /* ZKAudioDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAudioDownloader.m; sourceTree = "<group>"; };
+		58DDC7211EB71A2D00E1ADE0 /* ZKVideoRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKVideoRecordViewController.h; sourceTree = "<group>"; };
+		58DDC7221EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKVideoRecordViewController.m; sourceTree = "<group>"; };
+		58DDC7251EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
+		58DDC7261EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
 		5D326886A7626DFFBB49C558 /* Pods-ZKStreamMediaUtil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKStreamMediaUtil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKStreamMediaUtil/Pods-ZKStreamMediaUtil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */,
+				58DDC7201EB719A300E1ADE0 /* ZKVideoRecorder */,
 				589154031EB5CD590056FAA1 /* ZKAudioPlayer */,
 				5845AAE41EB58688003C1AAC /* ZKDownloader */,
 				5845AAE31EB5865E003C1AAC /* ZKFilterPreview */,
@@ -192,6 +199,25 @@
 				5891541B1EB6D01E0056FAA1 /* ZKAudioDownloader.m */,
 			);
 			path = ZKAudioPlayer;
+			sourceTree = "<group>";
+		};
+		58DDC7201EB719A300E1ADE0 /* ZKVideoRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				58DDC7241EB71A9A00E1ADE0 /* BeautifyFilter */,
+				58DDC7211EB71A2D00E1ADE0 /* ZKVideoRecordViewController.h */,
+				58DDC7221EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m */,
+			);
+			path = ZKVideoRecorder;
+			sourceTree = "<group>";
+		};
+		58DDC7241EB71A9A00E1ADE0 /* BeautifyFilter */ = {
+			isa = PBXGroup;
+			children = (
+				58DDC7251EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.h */,
+				58DDC7261EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m */,
+			);
+			path = BeautifyFilter;
 			sourceTree = "<group>";
 		};
 		788ABC45FBD20B8EE0CAFB2F /* Frameworks */ = {
@@ -328,11 +354,13 @@
 			files = (
 				5845AAEE1EB586B7003C1AAC /* ZKFilterPreviewViewController.m in Sources */,
 				5845AAF21EB5882C003C1AAC /* ZKFilterOptionView.m in Sources */,
+				58DDC7231EB71A2D00E1ADE0 /* ZKVideoRecordViewController.m in Sources */,
 				589154071EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.m in Sources */,
 				5845AAE91EB58688003C1AAC /* ZKDownloader.m in Sources */,
 				584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */,
 				5891540F1EB5DC760056FAA1 /* ViewController.m in Sources */,
 				5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */,
+				58DDC7271EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m in Sources */,
 				589154191EB62A610056FAA1 /* ZKAudioFileManager.m in Sources */,
 				589153FF1EB5A0AD0056FAA1 /* ZKDownloadManager.m in Sources */,
 				589154161EB601710056FAA1 /* NSURL+Add.m in Sources */,

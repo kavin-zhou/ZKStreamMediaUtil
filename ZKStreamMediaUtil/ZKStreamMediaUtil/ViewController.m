@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZKAudioPlayerViewController.h"
+#import "ZKVideoRecordViewController.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,11 @@
 }
 - (IBAction)pushToAudioVC {
     ZKAudioPlayerViewController *vc = [ZKAudioPlayerViewController new];
+    [self.navigationController pushViewController:vc animated:true];
+}
+
+- (IBAction)pushToVideoVC {
+    ZKVideoRecordViewController *vc = [ZKVideoRecordViewController new];
     [self.navigationController pushViewController:vc animated:true];
 }
 
