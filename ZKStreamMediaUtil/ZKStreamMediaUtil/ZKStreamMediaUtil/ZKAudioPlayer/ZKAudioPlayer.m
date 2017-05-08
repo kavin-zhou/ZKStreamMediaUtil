@@ -7,7 +7,6 @@
 //
 
 #import "ZKAudioPlayer.h"
-#import <AVFoundation/AVFoundation.h>
 #import "ZKResourceLoaderDelegate.h"
 #import "NSURL+Add.h"
 
@@ -30,15 +29,15 @@
     return shareInstance_;
 }
 
-- (void)playWithUrl:(NSURL *)url {
-    [self playWithUrl:url shouldCache:false];
+- (AVPlayer *)playWithUrl:(NSURL *)url {
+    return [self playWithUrl:url shouldCache:false];
 }
 
-- (void)playWithUrl:(NSURL *)url shouldCache:(BOOL)shouldCache {
+- (AVPlayer *)playWithUrl:(NSURL *)url shouldCache:(BOOL)shouldCache {
     NSURL *currentUrl = [(AVURLAsset *)_player.currentItem.asset URL];
     if ([currentUrl isEqual:url]) {
         [self resume];
-        return;
+        return _player;
     }
     
     if (shouldCache) {
@@ -63,6 +62,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePlaybackStalled:) name:AVPlayerItemPlaybackStalledNotification object:nil];
     
     _player = [AVPlayer playerWithPlayerItem:item];
+    return _player;
 }
 
 #pragma mark - KVO

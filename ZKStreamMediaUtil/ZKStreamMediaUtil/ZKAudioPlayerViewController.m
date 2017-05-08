@@ -8,6 +8,7 @@
 
 #import "ZKAudioPlayerViewController.h"
 #import "ZKAudioPlayer.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define AudioPlayer  [ZKAudioPlayer shareInstance]
 
@@ -50,8 +51,16 @@
 #pragma mark - Action
 
 - (IBAction)play {
-    NSURL *url = [NSURL URLWithString:@"http://op7sl7tu8.bkt.clouddn.com/08%20%E9%80%86%E9%B3%9E.m4a"];
-    [[ZKAudioPlayer shareInstance] playWithUrl:url shouldCache:true];
+    NSURL *url = [NSURL URLWithString:@"http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"];
+    AVPlayer *player = [[ZKAudioPlayer shareInstance] playWithUrl:url shouldCache:false];
+    UIView *view = [UIView new];
+    [self.view addSubview:view];
+    view.frame = CGRectMake(0, 64, 300, 100);
+    view.backgroundColor = [UIColor lightGrayColor];
+    
+    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:player];
+    [view.layer addSublayer:layer];
+    layer.frame = view.layer.bounds;
 }
 
 - (IBAction)resume {

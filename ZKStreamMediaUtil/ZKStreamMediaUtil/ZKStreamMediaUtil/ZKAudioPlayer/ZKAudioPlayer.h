@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 typedef NS_ENUM(NSUInteger, ZKAudioState) {
     ZKAudioStateUnknown = 0,
@@ -35,8 +36,8 @@ typedef NS_ENUM(NSUInteger, ZKAudioState) {
 
 + (instancetype)shareInstance;
 
-- (void)playWithUrl:(NSURL *)url; // 默认没有缓存数据到本地
-- (void)playWithUrl:(NSURL *)url shouldCache:(BOOL)shouldCache;
+- (AVPlayer *)playWithUrl:(NSURL *)url; // 默认没有缓存数据到本地
+- (AVPlayer *)playWithUrl:(NSURL *)url shouldCache:(BOOL)shouldCache;
 - (void)pause;
 - (void)resume;
 - (void)stop;
