@@ -16,6 +16,10 @@
 		584BC6A21EB44EB0003BC055 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 584BC6A11EB44EB0003BC055 /* AppDelegate.m */; };
 		584BC6AA1EB44EB0003BC055 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6A91EB44EB0003BC055 /* Assets.xcassets */; };
 		584BC6AD1EB44EB0003BC055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584BC6AB1EB44EB0003BC055 /* LaunchScreen.storyboard */; };
+		58564AF01EC5B52400D32DC1 /* MCPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 58564AEA1EC5B52400D32DC1 /* MCPlayer.bundle */; };
+		58564AF11EC5B52400D32DC1 /* MCVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58564AEC1EC5B52400D32DC1 /* MCVideoPlayerController.m */; };
+		58564AF21EC5B52400D32DC1 /* MCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58564AEE1EC5B52400D32DC1 /* MCVideoPlayerView.m */; };
+		58564AF31EC5B52400D32DC1 /* MCVideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58564AEF1EC5B52400D32DC1 /* MCVideoPlayerView.xib */; };
 		589153FF1EB5A0AD0056FAA1 /* ZKDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 589153FE1EB5A0AD0056FAA1 /* ZKDownloadManager.m */; };
 		589154021EB5A25A0056FAA1 /* NSString+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154011EB5A25A0056FAA1 /* NSString+add.m */; };
 		589154071EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 589154051EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.m */; };
@@ -58,6 +62,12 @@
 		584BC6AC1EB44EB0003BC055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		584BC6AE1EB44EB0003BC055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKGlobalHeader.h; sourceTree = "<group>"; };
+		58564AEA1EC5B52400D32DC1 /* MCPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MCPlayer.bundle; sourceTree = "<group>"; };
+		58564AEB1EC5B52400D32DC1 /* MCVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCVideoPlayerController.h; sourceTree = "<group>"; };
+		58564AEC1EC5B52400D32DC1 /* MCVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCVideoPlayerController.m; sourceTree = "<group>"; };
+		58564AED1EC5B52400D32DC1 /* MCVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCVideoPlayerView.h; sourceTree = "<group>"; };
+		58564AEE1EC5B52400D32DC1 /* MCVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCVideoPlayerView.m; sourceTree = "<group>"; };
+		58564AEF1EC5B52400D32DC1 /* MCVideoPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCVideoPlayerView.xib; sourceTree = "<group>"; };
 		589153FD1EB5A0AD0056FAA1 /* ZKDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKDownloadManager.h; sourceTree = "<group>"; };
 		589153FE1EB5A0AD0056FAA1 /* ZKDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKDownloadManager.m; sourceTree = "<group>"; };
 		589154001EB5A25A0056FAA1 /* NSString+add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+add.h"; sourceTree = "<group>"; };
@@ -200,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				584BC6B81EB45055003BC055 /* ZKGlobalHeader.h */,
+				58564AE91EC5B52400D32DC1 /* Video */,
 				58DDC7301EB73E7F00E1ADE0 /* ZKAudioRecorder */,
 				58DDC7281EB7217B00E1ADE0 /* Support */,
 				58DDC7201EB719A300E1ADE0 /* ZKVideoRecorder */,
@@ -208,6 +219,19 @@
 				5845AAE31EB5865E003C1AAC /* ZKFilterPreview */,
 			);
 			path = ZKStreamMediaUtil;
+			sourceTree = "<group>";
+		};
+		58564AE91EC5B52400D32DC1 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				58564AEA1EC5B52400D32DC1 /* MCPlayer.bundle */,
+				58564AEB1EC5B52400D32DC1 /* MCVideoPlayerController.h */,
+				58564AEC1EC5B52400D32DC1 /* MCVideoPlayerController.m */,
+				58564AED1EC5B52400D32DC1 /* MCVideoPlayerView.h */,
+				58564AEE1EC5B52400D32DC1 /* MCVideoPlayerView.m */,
+				58564AEF1EC5B52400D32DC1 /* MCVideoPlayerView.xib */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		589154031EB5CD590056FAA1 /* ZKAudioPlayer */ = {
@@ -358,7 +382,9 @@
 			files = (
 				584BC6AD1EB44EB0003BC055 /* LaunchScreen.storyboard in Resources */,
 				58DDC7461EB750C200E1ADE0 /* ZKAudioRecorderViewController.xib in Resources */,
+				58564AF01EC5B52400D32DC1 /* MCPlayer.bundle in Resources */,
 				589154081EB5CDBD0056FAA1 /* ZKAudioPlayerViewController.xib in Resources */,
+				58564AF31EC5B52400D32DC1 /* MCVideoPlayerView.xib in Resources */,
 				589154101EB5DC760056FAA1 /* ViewController.xib in Resources */,
 				584BC6AA1EB44EB0003BC055 /* Assets.xcassets in Resources */,
 			);
@@ -432,6 +458,7 @@
 				5845AAEA1EB58688003C1AAC /* ZKFileTool.m in Sources */,
 				58DDC7271EB71A9A00E1ADE0 /* GPUImageBeautifyFilter.m in Sources */,
 				58DDC7331EB73E9900E1ADE0 /* ZKAudioRecorder.m in Sources */,
+				58564AF21EC5B52400D32DC1 /* MCVideoPlayerView.m in Sources */,
 				589154191EB62A610056FAA1 /* ZKAudioFileManager.m in Sources */,
 				589153FF1EB5A0AD0056FAA1 /* ZKDownloadManager.m in Sources */,
 				589154161EB601710056FAA1 /* NSURL+Add.m in Sources */,
@@ -439,6 +466,7 @@
 				589154021EB5A25A0056FAA1 /* NSString+add.m in Sources */,
 				5891540B1EB5D0CB0056FAA1 /* ZKAudioPlayer.m in Sources */,
 				584BC69F1EB44EB0003BC055 /* main.m in Sources */,
+				58564AF11EC5B52400D32DC1 /* MCVideoPlayerController.m in Sources */,
 				5891541C1EB6D01E0056FAA1 /* ZKAudioDownloader.m in Sources */,
 				58DDC73E1EB74A8000E1ADE0 /* ZKAudioEditTool.m in Sources */,
 			);
